@@ -7,11 +7,18 @@
 
 import UIKit
 
-final class MainCell: UICollectionViewCell {
+final class MainCell: UITableViewCell {
     
     static let reuseID = String(describing: MainCell.self)
     
     // MARK: - UI
+    
+    private lazy var cardView: UIView = {
+        let uiView = UIView()
+        uiView.backgroundColor = .white
+        uiView.translatesAutoresizingMaskIntoConstraints = false
+        return uiView
+    }()
     
     private lazy var mainImage: UIImageView = {
         let imageView = UIImageView()
@@ -44,7 +51,7 @@ final class MainCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var cardView: UIView = {
+    private lazy var cardPriceView: UIView = {
         let uiView = UIView()
         uiView.backgroundColor = .white
         uiView.layer.borderColor = UIColor(named: "pinkCustom")?.cgColor
@@ -66,8 +73,8 @@ final class MainCell: UICollectionViewCell {
     
     // MARK: - Lifecycle
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupViews()
         setupConstraints()
@@ -81,12 +88,13 @@ final class MainCell: UICollectionViewCell {
         super.layoutSubviews()
         
         cardView.layer.cornerRadius = 6
+        cardView.layer.cornerRadius = 20
     }
     
     // MARK: - Setup Views
     
     private func setupViews() {
-        [mainImage, mainTitle, mainSubTitle, cardView, priceLabel].forEach {
+        [cardView ,mainImage, mainTitle, mainSubTitle, cardPriceView, priceLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -95,6 +103,11 @@ final class MainCell: UICollectionViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            cardView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            cardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            cardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
             mainImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             mainImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             mainImage.heightAnchor.constraint(equalToConstant: 132),
@@ -107,13 +120,13 @@ final class MainCell: UICollectionViewCell {
             mainSubTitle.leadingAnchor.constraint(equalTo: mainImage.trailingAnchor, constant: 32),
             mainSubTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
             
-            cardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
-            cardView.widthAnchor.constraint(equalToConstant: 87),
-            cardView.heightAnchor.constraint(equalToConstant: 32),
+            cardPriceView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
+            cardPriceView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24),
+            cardPriceView.widthAnchor.constraint(equalToConstant: 87),
+            cardPriceView.heightAnchor.constraint(equalToConstant: 32),
             
-            priceLabel.centerXAnchor.constraint(equalTo: cardView.centerXAnchor),
-            priceLabel.centerYAnchor.constraint(equalTo: cardView.centerYAnchor),
+            priceLabel.centerXAnchor.constraint(equalTo: cardPriceView.centerXAnchor),
+            priceLabel.centerYAnchor.constraint(equalTo: cardPriceView.centerYAnchor),
         ])
     }
 }

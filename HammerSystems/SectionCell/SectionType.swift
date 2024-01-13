@@ -7,8 +7,16 @@
 
 import Foundation
 
-enum SectionType {
+enum TableViewSection {
     case banner
     case category
     case main
+}
+
+enum BannerSection {
+    case bannerCollection
+}
+
+enum CategorySection {
+    case categoryCollection
 }

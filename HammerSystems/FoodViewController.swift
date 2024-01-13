@@ -11,20 +11,22 @@ final class FoodViewController: UIViewController {
     
     // MARK: - PROPERTY
     
-    let sections: [SectionType] = [.banner, .category, .main]
+    let tableViewSection: [TableViewSection] = [.banner, .category, .main]
     
     // MARK: - UI
     
-    private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.backgroundColor = .clear
-        collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.reuseID)
-        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseID)
-        collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseID)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        return collectionView
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: CategoryTableViewCell.reuseID)
+        tableView.register(BannerTableViewCell.self, forCellReuseIdentifier: BannerTableViewCell.reuseID)
+        tableView.register(MainCell.self, forCellReuseIdentifier: MainCell.reuseID)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.backgroundColor = UIColor(named: "background")
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
     }()
     
     // MARK: - Lifecycle
@@ -39,7 +41,7 @@ final class FoodViewController: UIViewController {
     // MARK: - Setup Views
     
     private func setupViews() {
-        view.addSubview(collectionView)
+        view.addSubview(tableView)
         view.backgroundColor = UIColor(named: "background")
     }
     
@@ -47,184 +49,69 @@ final class FoodViewController: UIViewController {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
-    
-    // MARK: - Create Layout
-    
-    private func createLayout() -> UICollectionViewCompositionalLayout {
-        return UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
-            let section = self?.sections[sectionIndex] ?? .banner
-            switch section {
-            case .banner:
-                return self?.bannerSectionLayout()
-            case .category:
-                return self?.categorySectionLayout()
-            case .main:
-                return self?.mainSectionLayout()
-            }
-        }
-    }
-    
-    // MARK: - Section Layout
-    
-    private func bannerSectionLayout() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1)
-            )
-        )
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(300),
-                heightDimension: .absolute(112)
-            ),
-            subitems: [item]
-        )
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 16
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-        section.orthogonalScrollingBehavior = .continuous
-        section.boundarySupplementaryItems = [supplementaryHeaderItem()]
-        return section
-    }
-    
-    private func categorySectionLayout() -> NSCollectionLayoutSection {
-        let item = NSCollectionLayoutItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .fractionalHeight(1)
-            )
-        )
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(88),
-                heightDimension: .absolute(32)
-            ),
-            subitems: [item]
-        )
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 8
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 16,
-            bottom: 0,
-            trailing: 16
-        )
-        section.orthogonalScrollingBehavior = .continuous
-        section.boundarySupplementaryItems = [supplementaryHeaderItem()]
-        return section
-    }
-    
-    private func mainSectionLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(180)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(180)
-        )
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitems: [item]
-        )
-        
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: 0,
-            trailing: 0
-        )
-        section.interGroupSpacing = 1
-        section.boundarySupplementaryItems = [supplementaryHeaderItem()]
-        return section
-    }
-
-    
-    // MARK: - Supplementary Header Item
-    
-    private func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
-        return NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(24)
-            ),
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .topLeading
-        )
-    }
 }
 
-extension FoodViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        sections.count
+extension FoodViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return tableViewSection.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let section = sections[indexPath.section]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let section = tableViewSection[indexPath.section]
         switch section {
         case .banner:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: BannerCell.reuseID,
-                for: indexPath
-            ) as? BannerCell else {
-                fatalError("Could not cast to BannerCell")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: BannerTableViewCell.reuseID, for: indexPath) as? BannerTableViewCell else {
+                fatalError("Could not cast to BannerTableViewCell")
             }
-            if indexPath.item == 0 {
-                cell.bannerImageView.image = UIImage(named: "bannerImage1")
-            } else if indexPath.item == 1 {
-                cell.bannerImageView.image = UIImage(named: "bannerImage2")
-            }
+            cell.backgroundColor = UIColor(named: "background")
             return cell
         case .category:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: CategoryCell.reuseID,
-                for: indexPath
-            ) as? CategoryCell else {
-                fatalError("Could not cast to CategoryCell")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.reuseID, for: indexPath) as? CategoryTableViewCell else {
+                fatalError("Could not cast to CategoryTableViewCell")
             }
+            cell.backgroundColor = UIColor(named: "background")
             return cell
         case .main:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: MainCell.reuseID,
-                for: indexPath
-            ) as? MainCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.reuseID, for: indexPath) as? MainCell else {
                 fatalError("Could not cast to MainCell")
             }
-            cell.backgroundColor = .white
-            cell.layer.cornerRadius = 20
+            cell.backgroundColor = UIColor(named: "background")
             return cell
         }
+        
     }
-
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let section = sections[section]
-        switch section {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let sectionType = tableViewSection[section]
+        switch sectionType {
         case .banner:
-            return 2
+            return 1
         case .category:
-            return 5
+            return 1
         case .main:
-            return 10
+            return 20
+        }
+        
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let sectionType = tableViewSection[indexPath.section]
+        switch sectionType {
+        case .banner:
+            return 136.0
+        case .category:
+            return 56.0
+        case .main:
+            return 180.0
         }
     }
 }
-
-

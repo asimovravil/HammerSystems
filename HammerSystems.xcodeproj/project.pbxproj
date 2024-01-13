@@ -25,6 +25,8 @@
 		F16CC1B32B5292A800E08CB2 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1B22B5292A800E08CB2 /* BannerCell.swift */; };
 		F16CC1B52B52961B00E08CB2 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1B42B52961B00E08CB2 /* CategoryCell.swift */; };
 		F16CC1B72B52985C00E08CB2 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1B62B52985B00E08CB2 /* MainCell.swift */; };
+		F16CC1C62B52BDAF00E08CB2 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1C52B52BDAF00E08CB2 /* CategoryTableViewCell.swift */; };
+		F16CC1C82B52C07C00E08CB2 /* BannerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1C72B52C07C00E08CB2 /* BannerTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		F16CC1B22B5292A800E08CB2 /* BannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		F16CC1B42B52961B00E08CB2 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		F16CC1B62B52985B00E08CB2 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		F16CC1C52B52BDAF00E08CB2 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		F16CC1C72B52C07C00E08CB2 /* BannerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,10 +88,8 @@
 				F16CC1892B528C5100E08CB2 /* AppDelegate.swift */,
 				F16CC18B2B528C5100E08CB2 /* SceneDelegate.swift */,
 				F16CC18D2B528C5100E08CB2 /* FoodViewController.swift */,
-				F16CC1B22B5292A800E08CB2 /* BannerCell.swift */,
-				F16CC1B42B52961B00E08CB2 /* CategoryCell.swift */,
-				F16CC1B62B52985B00E08CB2 /* MainCell.swift */,
-				F16CC1B02B528E8D00E08CB2 /* SectionType.swift */,
+				F16CC1C92B52C32D00E08CB2 /* TableViewCell */,
+				F16CC1C42B52BCB800E08CB2 /* SectionCell */,
 				F16CC1922B528C5200E08CB2 /* Assets.xcassets */,
 				F16CC1942B528C5200E08CB2 /* LaunchScreen.storyboard */,
 				F16CC1972B528C5200E08CB2 /* Info.plist */,
@@ -109,6 +111,26 @@
 				F16CC1A62B528D7900E08CB2 /* SFProDisplay-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		F16CC1C42B52BCB800E08CB2 /* SectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				F16CC1B02B528E8D00E08CB2 /* SectionType.swift */,
+				F16CC1B22B5292A800E08CB2 /* BannerCell.swift */,
+				F16CC1B42B52961B00E08CB2 /* CategoryCell.swift */,
+				F16CC1B62B52985B00E08CB2 /* MainCell.swift */,
+			);
+			path = SectionCell;
+			sourceTree = "<group>";
+		};
+		F16CC1C92B52C32D00E08CB2 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				F16CC1C72B52C07C00E08CB2 /* BannerTableViewCell.swift */,
+				F16CC1C52B52BDAF00E08CB2 /* CategoryTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,8 +215,10 @@
 				F16CC18E2B528C5100E08CB2 /* FoodViewController.swift in Sources */,
 				F16CC1B72B52985C00E08CB2 /* MainCell.swift in Sources */,
 				F16CC18A2B528C5100E08CB2 /* AppDelegate.swift in Sources */,
+				F16CC1C82B52C07C00E08CB2 /* BannerTableViewCell.swift in Sources */,
 				F16CC18C2B528C5100E08CB2 /* SceneDelegate.swift in Sources */,
 				F16CC1B32B5292A800E08CB2 /* BannerCell.swift in Sources */,
+				F16CC1C62B52BDAF00E08CB2 /* CategoryTableViewCell.swift in Sources */,
 				F16CC1B52B52961B00E08CB2 /* CategoryCell.swift in Sources */,
 				F16CC1B12B528E8D00E08CB2 /* SectionType.swift in Sources */,
 			);
