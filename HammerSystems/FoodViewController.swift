@@ -22,6 +22,7 @@ final class FoodViewController: UIViewController {
         collectionView.backgroundColor = .clear
         collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.reuseID)
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseID)
+        collectionView.register(MainCell.self, forCellWithReuseIdentifier: MainCell.reuseID)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -49,7 +50,7 @@ final class FoodViewController: UIViewController {
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
@@ -127,33 +128,33 @@ final class FoodViewController: UIViewController {
     
     private func mainSectionLayout() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.5),
-            heightDimension: .absolute(296)
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(180)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
+
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(296)
+            heightDimension: .estimated(180)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
-            subitems: [item, item]
+            subitems: [item]
         )
         
-        group.interItemSpacing = .fixed(15)
-        
+
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 15
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: 16,
-            bottom: 15,
-            trailing: 16
+            leading: 0,
+            bottom: 0,
+            trailing: 0
         )
+        section.interGroupSpacing = 1
         section.boundarySupplementaryItems = [supplementaryHeaderItem()]
         return section
     }
+
     
     // MARK: - Supplementary Header Item
     
@@ -196,11 +197,13 @@ extension FoodViewController: UICollectionViewDataSource, UICollectionViewDelega
             return cell
         case .main:
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: BannerCell.reuseID,
+                withReuseIdentifier: MainCell.reuseID,
                 for: indexPath
-            ) as? BannerCell else {
-                fatalError("Could not cast to BannerCollectionViewCell")
+            ) as? MainCell else {
+                fatalError("Could not cast to MainCell")
             }
+            cell.backgroundColor = .white
+            cell.layer.cornerRadius = 20
             return cell
         }
     }

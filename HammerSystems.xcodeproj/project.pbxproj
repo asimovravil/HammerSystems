@@ -24,6 +24,7 @@
 		F16CC1B12B528E8D00E08CB2 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1B02B528E8D00E08CB2 /* SectionType.swift */; };
 		F16CC1B32B5292A800E08CB2 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1B22B5292A800E08CB2 /* BannerCell.swift */; };
 		F16CC1B52B52961B00E08CB2 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1B42B52961B00E08CB2 /* CategoryCell.swift */; };
+		F16CC1B72B52985C00E08CB2 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1B62B52985B00E08CB2 /* MainCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		F16CC1B02B528E8D00E08CB2 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 		F16CC1B22B5292A800E08CB2 /* BannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		F16CC1B42B52961B00E08CB2 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		F16CC1B62B52985B00E08CB2 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				F16CC18D2B528C5100E08CB2 /* FoodViewController.swift */,
 				F16CC1B22B5292A800E08CB2 /* BannerCell.swift */,
 				F16CC1B42B52961B00E08CB2 /* CategoryCell.swift */,
+				F16CC1B62B52985B00E08CB2 /* MainCell.swift */,
 				F16CC1B02B528E8D00E08CB2 /* SectionType.swift */,
 				F16CC1922B528C5200E08CB2 /* Assets.xcassets */,
 				F16CC1942B528C5200E08CB2 /* LaunchScreen.storyboard */,
@@ -188,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F16CC18E2B528C5100E08CB2 /* FoodViewController.swift in Sources */,
+				F16CC1B72B52985C00E08CB2 /* MainCell.swift in Sources */,
 				F16CC18A2B528C5100E08CB2 /* AppDelegate.swift in Sources */,
 				F16CC18C2B528C5100E08CB2 /* SceneDelegate.swift in Sources */,
 				F16CC1B32B5292A800E08CB2 /* BannerCell.swift in Sources */,
