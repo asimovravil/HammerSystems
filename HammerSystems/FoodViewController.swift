@@ -79,6 +79,19 @@ final class FoodViewController: UIViewController {
     private func mainSectionLayout() -> NSCollectionLayoutSection {
         
     }
+    
+    // MARK: - Supplementary Header Item
+    
+    private func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
+        return NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .absolute(43)
+            ),
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .topLeading
+        )
+    }
 }
 
 extension FoodViewController: UICollectionViewDataSource, UICollectionViewDelegate {
