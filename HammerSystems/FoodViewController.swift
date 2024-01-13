@@ -20,6 +20,8 @@ final class FoodViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
+        collectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: BannerCollectionViewCell.reuseID)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
@@ -167,16 +169,25 @@ final class FoodViewController: UIViewController {
 }
 
 extension FoodViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-    }
-    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
+        sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let section = sections[section]
+        switch section {
+        case .banner:
+            return 3
+        case .category:
+            return 5
+        case .main:
+            return 10
+        }
     }
 }
 
