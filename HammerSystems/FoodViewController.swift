@@ -24,7 +24,14 @@ class FoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
+        setupViews()
+    }
+    
+    // MARK: - Setup Views
+    
+    private func setupViews() {
+        view.addSubview(collectionView)
+        view.backgroundColor = UIColor(named: "background")
     }
 }
 
