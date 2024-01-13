@@ -16,7 +16,8 @@ final class BannerCollectionViewCell: UICollectionViewCell {
     private lazy var bannerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "bannerImage")
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFill 
+        imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()

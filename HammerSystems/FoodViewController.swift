@@ -80,17 +80,17 @@ final class FoodViewController: UIViewController {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .absolute(300),
-                heightDimension: .absolute(160)
+                heightDimension: .absolute(112)
             ),
             subitems: [item]
         )
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 10
+        section.interGroupSpacing = 16
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: 16,
-            bottom: 15,
-            trailing: 16
+            leading: 0,
+            bottom: 0,
+            trailing: 0
         )
         section.orthogonalScrollingBehavior = .continuous
         section.boundarySupplementaryItems = [supplementaryHeaderItem()]
