@@ -14,7 +14,8 @@ final class FoodViewController: UIViewController {
     let tableViewSection: [TableViewSection] = [.banner, .category, .main]
     var allItems: [CategoryItem] = []
     let apiService = APIService()
-    
+    var categoryStartIndices: [String: Int] = [:]
+
     // MARK: - UI
     
     private lazy var tableView: UITableView = {
@@ -64,6 +65,7 @@ final class FoodViewController: UIViewController {
     
     private func fetchData() {
         apiService.fetchSearchResults { [weak self] (result, error) in
+            self?.prepareCategoryIndices(results: result?.searchResults ?? [])
             if let error = error {
                 print("Ошибка при получении данных: \(error.localizedDescription)")
                 return
@@ -76,9 +78,17 @@ final class FoodViewController: UIViewController {
             }
         }
     }
+    
+    private func prepareCategoryIndices(results: [CategoryResult]) {
+        var currentIndex = 0
+        for categoryResult in results {
+            categoryStartIndices[categoryResult.name] = currentIndex
+            currentIndex += categoryResult.results.count
+        }
+    }
 }
 
-extension FoodViewController: UITableViewDataSource, UITableViewDelegate {
+extension FoodViewController: UITableViewDataSource, UITableViewDelegate, CategoryTableViewCellDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableViewSection.count
     }
@@ -142,6 +152,7 @@ extension FoodViewController {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if tableViewSection[section] == .category {
             let headerView = CategoryTableViewCell()
+            headerView.delegate = self
             return headerView
         }
         return nil
@@ -163,6 +174,17 @@ extension FoodViewController {
         if let mainCell = cell as? MainCell {
             mainCell.cardView.layer.cornerRadius = 20
             mainCell.cardView.layer.masksToBounds = true
+        }
+    }
+    
+    func didSelectCategory(atIndex index: Int) {
+        let categoryNames = ["Recipes", "Products", "Menu Items"]
+        guard index < categoryNames.count else { return }
+
+        let categoryName = categoryNames[index]
+        if let categoryIndex = categoryStartIndices[categoryName] {
+            let indexPath = IndexPath(row: categoryIndex, section: 2)
+            tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
 }

@@ -7,14 +7,24 @@
 
 import UIKit
 
+protocol CategoryTableViewCellDelegate: AnyObject {
+    func didSelectCategory(atIndex index: Int)
+}
+
 final class CategoryTableViewCell: UITableViewCell {
     
     // MARK: - PROPERTY
     
+    var selectedCategoryIndex: IndexPath? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+    
     static let reuseID = String(describing: CategoryTableViewCell.self)
-    var selectedCategoryIndex: IndexPath?
     let sections: [CategorySection] = [.categoryCollection]
     let categories = ["Recipes", "Products", "Menu Items", "Custom"]
+    weak var delegate: CategoryTableViewCellDelegate?
     
     // MARK: - UI
     
@@ -134,8 +144,16 @@ extension CategoryTableViewCell: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let previousIndex = selectedCategoryIndex
         selectedCategoryIndex = indexPath
-        collectionView.reloadData()
+        
+        if let previousIndex = previousIndex {
+            collectionView.reloadItems(at: [previousIndex, indexPath])
+        } else {
+            collectionView.reloadItems(at: [indexPath])
+        }
+        
+        delegate?.didSelectCategory(atIndex: indexPath.item)
     }
     
     private func updateCellStyle(_ cell: CategoryCell, for indexPath: IndexPath) {
