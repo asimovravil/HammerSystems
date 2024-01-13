@@ -10,9 +10,17 @@
 		F16CC18A2B528C5100E08CB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1892B528C5100E08CB2 /* AppDelegate.swift */; };
 		F16CC18C2B528C5100E08CB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC18B2B528C5100E08CB2 /* SceneDelegate.swift */; };
 		F16CC18E2B528C5100E08CB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC18D2B528C5100E08CB2 /* ViewController.swift */; };
-		F16CC1912B528C5100E08CB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16CC18F2B528C5100E08CB2 /* Main.storyboard */; };
 		F16CC1932B528C5200E08CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1922B528C5200E08CB2 /* Assets.xcassets */; };
 		F16CC1962B528C5200E08CB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1942B528C5200E08CB2 /* LaunchScreen.storyboard */; };
+		F16CC1A72B528D7900E08CB2 /* SFProDisplay-Ultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC19E2B528D7900E08CB2 /* SFProDisplay-Ultralight.ttf */; };
+		F16CC1A82B528D7900E08CB2 /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC19F2B528D7900E08CB2 /* SFProDisplay-Medium.ttf */; };
+		F16CC1A92B528D7900E08CB2 /* SFProDisplay-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A02B528D7900E08CB2 /* SFProDisplay-Black.ttf */; };
+		F16CC1AA2B528D7900E08CB2 /* SFProDisplay-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A12B528D7900E08CB2 /* SFProDisplay-Light.ttf */; };
+		F16CC1AB2B528D7900E08CB2 /* SFProDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A22B528D7900E08CB2 /* SFProDisplay-Regular.ttf */; };
+		F16CC1AC2B528D7900E08CB2 /* SFProDisplay-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A32B528D7900E08CB2 /* SFProDisplay-Bold.ttf */; };
+		F16CC1AD2B528D7900E08CB2 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A42B528D7900E08CB2 /* SFProDisplay-Semibold.ttf */; };
+		F16CC1AE2B528D7900E08CB2 /* SFProDisplay-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A52B528D7900E08CB2 /* SFProDisplay-Heavy.ttf */; };
+		F16CC1AF2B528D7900E08CB2 /* SFProDisplay-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A62B528D7900E08CB2 /* SFProDisplay-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +28,18 @@
 		F16CC1892B528C5100E08CB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F16CC18B2B528C5100E08CB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F16CC18D2B528C5100E08CB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F16CC1902B528C5100E08CB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F16CC1922B528C5200E08CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F16CC1952B528C5200E08CB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F16CC1972B528C5200E08CB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F16CC19E2B528D7900E08CB2 /* SFProDisplay-Ultralight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Ultralight.ttf"; sourceTree = "<group>"; };
+		F16CC19F2B528D7900E08CB2 /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
+		F16CC1A02B528D7900E08CB2 /* SFProDisplay-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Black.ttf"; sourceTree = "<group>"; };
+		F16CC1A12B528D7900E08CB2 /* SFProDisplay-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Light.ttf"; sourceTree = "<group>"; };
+		F16CC1A22B528D7900E08CB2 /* SFProDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		F16CC1A32B528D7900E08CB2 /* SFProDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Bold.ttf"; sourceTree = "<group>"; };
+		F16CC1A42B528D7900E08CB2 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
+		F16CC1A52B528D7900E08CB2 /* SFProDisplay-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Heavy.ttf"; sourceTree = "<group>"; };
+		F16CC1A62B528D7900E08CB2 /* SFProDisplay-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +72,31 @@
 		F16CC1882B528C5100E08CB2 /* HammerSystems */ = {
 			isa = PBXGroup;
 			children = (
+				F16CC19D2B528D7900E08CB2 /* Fonts */,
 				F16CC1892B528C5100E08CB2 /* AppDelegate.swift */,
 				F16CC18B2B528C5100E08CB2 /* SceneDelegate.swift */,
 				F16CC18D2B528C5100E08CB2 /* ViewController.swift */,
-				F16CC18F2B528C5100E08CB2 /* Main.storyboard */,
 				F16CC1922B528C5200E08CB2 /* Assets.xcassets */,
 				F16CC1942B528C5200E08CB2 /* LaunchScreen.storyboard */,
 				F16CC1972B528C5200E08CB2 /* Info.plist */,
 			);
 			path = HammerSystems;
+			sourceTree = "<group>";
+		};
+		F16CC19D2B528D7900E08CB2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F16CC19E2B528D7900E08CB2 /* SFProDisplay-Ultralight.ttf */,
+				F16CC19F2B528D7900E08CB2 /* SFProDisplay-Medium.ttf */,
+				F16CC1A02B528D7900E08CB2 /* SFProDisplay-Black.ttf */,
+				F16CC1A12B528D7900E08CB2 /* SFProDisplay-Light.ttf */,
+				F16CC1A22B528D7900E08CB2 /* SFProDisplay-Regular.ttf */,
+				F16CC1A32B528D7900E08CB2 /* SFProDisplay-Bold.ttf */,
+				F16CC1A42B528D7900E08CB2 /* SFProDisplay-Semibold.ttf */,
+				F16CC1A52B528D7900E08CB2 /* SFProDisplay-Heavy.ttf */,
+				F16CC1A62B528D7900E08CB2 /* SFProDisplay-Thin.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,9 +157,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16CC1AE2B528D7900E08CB2 /* SFProDisplay-Heavy.ttf in Resources */,
 				F16CC1962B528C5200E08CB2 /* LaunchScreen.storyboard in Resources */,
+				F16CC1AD2B528D7900E08CB2 /* SFProDisplay-Semibold.ttf in Resources */,
+				F16CC1A82B528D7900E08CB2 /* SFProDisplay-Medium.ttf in Resources */,
+				F16CC1A72B528D7900E08CB2 /* SFProDisplay-Ultralight.ttf in Resources */,
+				F16CC1AF2B528D7900E08CB2 /* SFProDisplay-Thin.ttf in Resources */,
+				F16CC1AB2B528D7900E08CB2 /* SFProDisplay-Regular.ttf in Resources */,
+				F16CC1AA2B528D7900E08CB2 /* SFProDisplay-Light.ttf in Resources */,
 				F16CC1932B528C5200E08CB2 /* Assets.xcassets in Resources */,
-				F16CC1912B528C5100E08CB2 /* Main.storyboard in Resources */,
+				F16CC1A92B528D7900E08CB2 /* SFProDisplay-Black.ttf in Resources */,
+				F16CC1AC2B528D7900E08CB2 /* SFProDisplay-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +187,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F16CC18F2B528C5100E08CB2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F16CC1902B528C5100E08CB2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F16CC1942B528C5200E08CB2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,7 +329,6 @@
 				INFOPLIST_FILE = HammerSystems/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +356,6 @@
 				INFOPLIST_FILE = HammerSystems/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
