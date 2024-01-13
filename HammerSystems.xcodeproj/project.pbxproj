@@ -21,6 +21,7 @@
 		F16CC1AD2B528D7900E08CB2 /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A42B528D7900E08CB2 /* SFProDisplay-Semibold.ttf */; };
 		F16CC1AE2B528D7900E08CB2 /* SFProDisplay-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A52B528D7900E08CB2 /* SFProDisplay-Heavy.ttf */; };
 		F16CC1AF2B528D7900E08CB2 /* SFProDisplay-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1A62B528D7900E08CB2 /* SFProDisplay-Thin.ttf */; };
+		F16CC1B12B528E8D00E08CB2 /* SectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1B02B528E8D00E08CB2 /* SectionType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		F16CC1A42B528D7900E08CB2 /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
 		F16CC1A52B528D7900E08CB2 /* SFProDisplay-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Heavy.ttf"; sourceTree = "<group>"; };
 		F16CC1A62B528D7900E08CB2 /* SFProDisplay-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Thin.ttf"; sourceTree = "<group>"; };
+		F16CC1B02B528E8D00E08CB2 /* SectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				F16CC1892B528C5100E08CB2 /* AppDelegate.swift */,
 				F16CC18B2B528C5100E08CB2 /* SceneDelegate.swift */,
 				F16CC18D2B528C5100E08CB2 /* ViewController.swift */,
+				F16CC1B02B528E8D00E08CB2 /* SectionType.swift */,
 				F16CC1922B528C5200E08CB2 /* Assets.xcassets */,
 				F16CC1942B528C5200E08CB2 /* LaunchScreen.storyboard */,
 				F16CC1972B528C5200E08CB2 /* Info.plist */,
@@ -181,6 +184,7 @@
 				F16CC18E2B528C5100E08CB2 /* ViewController.swift in Sources */,
 				F16CC18A2B528C5100E08CB2 /* AppDelegate.swift in Sources */,
 				F16CC18C2B528C5100E08CB2 /* SceneDelegate.swift in Sources */,
+				F16CC1B12B528E8D00E08CB2 /* SectionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
