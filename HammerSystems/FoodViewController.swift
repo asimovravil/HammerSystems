@@ -76,6 +76,7 @@ extension FoodViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.reuseID, for: indexPath) as? MainCell else {
                 fatalError("Could not cast to MainCell")
             }
+            cell.isFirstCell = indexPath.row == 0
             cell.backgroundColor = UIColor(named: "background")
             return cell
         default:
@@ -131,5 +132,12 @@ extension FoodViewController {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.contentView.backgroundColor = .white
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let mainCell = cell as? MainCell {
+            mainCell.cardView.layer.cornerRadius = 20
+            mainCell.cardView.layer.masksToBounds = true
+        }
     }
 }

@@ -11,11 +11,12 @@ final class MainCell: UITableViewCell {
     
     // MARK: - PROPERTY
     
+    var isFirstCell: Bool = false
     static let reuseID = String(describing: MainCell.self)
     
     // MARK: - UI
     
-    private lazy var cardView: UIView = {
+    public lazy var cardView: UIView = {
         let uiView = UIView()
         uiView.backgroundColor = .white
         uiView.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +89,13 @@ final class MainCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
+        if isFirstCell {
+            cardView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        } else {
+            cardView.layer.maskedCorners = []
+        }
+
         cardPriceView.layer.cornerRadius = 6
         cardView.layer.cornerRadius = 20
     }
@@ -108,7 +115,7 @@ final class MainCell: UITableViewCell {
             cardView.topAnchor.constraint(equalTo: contentView.topAnchor),
             cardView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cardView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            cardView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -1),
             
             mainImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             mainImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
