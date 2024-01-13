@@ -9,11 +9,13 @@ import UIKit
 
 final class CategoryCell: UICollectionViewCell {
     
+    // MARK: - PROPERTY
+    
     static let reuseID = String(describing: CategoryCell.self)
     
     // MARK: - UI
     
-    private lazy var cardView: UIView = {
+    public lazy var cardView: UIView = {
         let uiView = UIView()
         uiView.backgroundColor = UIColor(named: "background")
         uiView.layer.borderColor = UIColor(named: "pinkCustom")?.withAlphaComponent(0.40).cgColor
@@ -22,7 +24,7 @@ final class CategoryCell: UICollectionViewCell {
         return uiView
     }()
     
-    private lazy var categoryLabel: UILabel = {
+    public lazy var categoryLabel: UILabel = {
         let label = UILabel()
         label.text = "Пицца"
         label.textAlignment = .center

@@ -9,6 +9,8 @@ import UIKit
 
 final class BannerCell: UICollectionViewCell {
     
+    // MARK: - PROPERTY
+    
     static let reuseID = String(describing: BannerCell.self)
     
     // MARK: - UI

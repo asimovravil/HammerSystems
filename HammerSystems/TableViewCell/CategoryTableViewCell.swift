@@ -9,7 +9,10 @@ import UIKit
 
 final class CategoryTableViewCell: UITableViewCell {
     
+    // MARK: - PROPERTY
+    
     static let reuseID = String(describing: CategoryTableViewCell.self)
+    var selectedCategoryIndex: IndexPath?
     let sections: [CategorySection] = [.categoryCollection]
     
     // MARK: - UI
@@ -107,10 +110,18 @@ extension CategoryTableViewCell: UICollectionViewDataSource, UICollectionViewDel
                 for: indexPath
             ) as? CategoryCell else {
                 fatalError("Could not cast to CategoryCell")
+            }            
+            if indexPath == selectedCategoryIndex {
+                cell.cardView.backgroundColor = UIColor(named: "pinkCustom")?.withAlphaComponent(0.40)
+                cell.categoryLabel.textColor = UIColor(named: "pinkCustom")
+            } else {
+                cell.cardView.backgroundColor = UIColor(named: "background")
+                cell.categoryLabel.textColor = UIColor(named: "pinkCustom")?.withAlphaComponent(0.40)
             }
             return cell
         }
     }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let section = sections[section]
@@ -122,5 +133,10 @@ extension CategoryTableViewCell: UICollectionViewDataSource, UICollectionViewDel
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return sections.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCategoryIndex = indexPath
+        collectionView.reloadData()
     }
 }

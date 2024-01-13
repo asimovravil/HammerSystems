@@ -9,6 +9,8 @@ import UIKit
 
 final class MainCell: UITableViewCell {
     
+    // MARK: - PROPERTY
+    
     static let reuseID = String(describing: MainCell.self)
     
     // MARK: - UI

@@ -9,6 +9,8 @@ import UIKit
 
 final class BannerTableViewCell: UITableViewCell {
     
+    // MARK: - PROPERTY
+    
     static let reuseID = String(describing: BannerTableViewCell.self)
     let collectionSection: [BannerSection] = [.bannerCollection]
     
