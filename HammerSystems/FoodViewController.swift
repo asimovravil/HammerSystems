@@ -175,8 +175,35 @@ extension FoodViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        let section = sections[indexPath.section]
+        switch section {
+        case .banner:
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: BannerCollectionViewCell.reuseID,
+                for: indexPath
+            ) as? BannerCollectionViewCell else {
+                fatalError("Could not cast to BannerCollectionViewCell")
+            }
+            return cell
+        case .category:
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: BannerCollectionViewCell.reuseID,
+                for: indexPath
+            ) as? BannerCollectionViewCell else {
+                fatalError("Could not cast to BannerCollectionViewCell")
+            }
+            return cell
+        case .main:
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: BannerCollectionViewCell.reuseID,
+                for: indexPath
+            ) as? BannerCollectionViewCell else {
+                fatalError("Could not cast to BannerCollectionViewCell")
+            }
+            return cell
+        }
     }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let section = sections[section]
