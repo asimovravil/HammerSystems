@@ -1,5 +1,5 @@
 //
-//  BannerCollectionViewCell.swift
+//  BannerCell.swift
 //  CubeStore
 //
 //  Created by Ravil on 26.07.2023.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-final class BannerCollectionViewCell: UICollectionViewCell {
+final class BannerCell: UICollectionViewCell {
     
-    static let reuseID = String(describing: BannerCollectionViewCell.self)
+    static let reuseID = String(describing: BannerCell.self)
     
     // MARK: - UI
     
     private lazy var bannerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "bannerImage")
-        imageView.contentMode = .scaleAspectFill 
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

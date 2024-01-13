@@ -20,7 +20,8 @@ final class FoodViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
-        collectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: BannerCollectionViewCell.reuseID)
+        collectionView.register(BannerCell.self, forCellWithReuseIdentifier: BannerCell.reuseID)
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.reuseID)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -106,13 +107,13 @@ final class FoodViewController: UIViewController {
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: NSCollectionLayoutSize(
-                widthDimension: .absolute(300),
-                heightDimension: .absolute(160)
+                widthDimension: .absolute(88),
+                heightDimension: .absolute(32)
             ),
             subitems: [item]
         )
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 10
+        section.interGroupSpacing = 8
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: 16,
@@ -179,25 +180,25 @@ extension FoodViewController: UICollectionViewDataSource, UICollectionViewDelega
         switch section {
         case .banner:
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: BannerCollectionViewCell.reuseID,
+                withReuseIdentifier: BannerCell.reuseID,
                 for: indexPath
-            ) as? BannerCollectionViewCell else {
-                fatalError("Could not cast to BannerCollectionViewCell")
+            ) as? BannerCell else {
+                fatalError("Could not cast to BannerCell")
             }
             return cell
         case .category:
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: BannerCollectionViewCell.reuseID,
+                withReuseIdentifier: CategoryCell.reuseID,
                 for: indexPath
-            ) as? BannerCollectionViewCell else {
-                fatalError("Could not cast to BannerCollectionViewCell")
+            ) as? CategoryCell else {
+                fatalError("Could not cast to CategoryCell")
             }
             return cell
         case .main:
             guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: BannerCollectionViewCell.reuseID,
+                withReuseIdentifier: BannerCell.reuseID,
                 for: indexPath
-            ) as? BannerCollectionViewCell else {
+            ) as? BannerCell else {
                 fatalError("Could not cast to BannerCollectionViewCell")
             }
             return cell
