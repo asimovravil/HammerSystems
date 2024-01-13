@@ -43,6 +43,7 @@ final class FoodViewController: UIViewController {
     private func setupViews() {
         view.addSubview(tableView)
         view.backgroundColor = UIColor(named: "background")
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     // MARK: - Setup Constraints
@@ -71,20 +72,15 @@ extension FoodViewController: UITableViewDataSource, UITableViewDelegate {
             }
             cell.backgroundColor = UIColor(named: "background")
             return cell
-        case .category:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CategoryTableViewCell.reuseID, for: indexPath) as? CategoryTableViewCell else {
-                fatalError("Could not cast to CategoryTableViewCell")
-            }
-            cell.backgroundColor = UIColor(named: "background")
-            return cell
         case .main:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.reuseID, for: indexPath) as? MainCell else {
                 fatalError("Could not cast to MainCell")
             }
             cell.backgroundColor = UIColor(named: "background")
             return cell
+        default:
+            fatalError("Unexpected section")
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,25 +89,47 @@ extension FoodViewController: UITableViewDataSource, UITableViewDelegate {
         case .banner:
             return 1
         case .category:
-            return 1
+            return 0
         case .main:
             return 20
         }
-        
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let sectionType = tableViewSection[indexPath.section]
         switch sectionType {
         case .banner:
-            return 136.0
+            return 112.0
         case .category:
-            return 56.0
+            return 32.0
         case .main:
             return 180.0
         }
+    }
+}
+
+extension FoodViewController {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if tableViewSection[section] == .category {
+            let headerView = CategoryTableViewCell()
+            return headerView
+        }
+        return nil
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if tableViewSection[section] == .category {
+            return 32.0
+        }
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        guard let header = view as? UITableViewHeaderFooterView else { return }
+        header.contentView.backgroundColor = .white
     }
 }
