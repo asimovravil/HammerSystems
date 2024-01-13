@@ -64,6 +64,8 @@ final class CategoryCell: UICollectionViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
+            cardView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            cardView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             cardView.widthAnchor.constraint(equalToConstant: 88),
             cardView.heightAnchor.constraint(equalToConstant: 32),
             

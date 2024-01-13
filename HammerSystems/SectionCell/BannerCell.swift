@@ -50,7 +50,8 @@ final class BannerCell: UICollectionViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            bannerImageView.heightAnchor.constraint(equalToConstant: 112),
+            bannerImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            bannerImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
         ])
     }
 }

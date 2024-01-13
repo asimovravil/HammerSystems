@@ -87,7 +87,7 @@ final class MainCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        cardView.layer.cornerRadius = 6
+        cardPriceView.layer.cornerRadius = 6
         cardView.layer.cornerRadius = 20
     }
     

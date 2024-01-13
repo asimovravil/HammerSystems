@@ -86,9 +86,9 @@ final class BannerTableViewCell: UITableViewCell {
         section.interGroupSpacing = 16
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: 0,
+            leading: 16,
             bottom: 0,
-            trailing: 0
+            trailing: 16
         )
         section.orthogonalScrollingBehavior = .continuous
         return section

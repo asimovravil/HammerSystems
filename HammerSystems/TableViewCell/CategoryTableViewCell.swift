@@ -84,7 +84,7 @@ final class CategoryTableViewCell: UITableViewCell {
             subitems: [item]
         )
         let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = 10
+        section.interGroupSpacing = 8
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: 16,
