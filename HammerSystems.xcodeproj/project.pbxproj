@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F16CC18A2B528C5100E08CB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC1892B528C5100E08CB2 /* AppDelegate.swift */; };
 		F16CC18C2B528C5100E08CB2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC18B2B528C5100E08CB2 /* SceneDelegate.swift */; };
-		F16CC18E2B528C5100E08CB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC18D2B528C5100E08CB2 /* ViewController.swift */; };
+		F16CC18E2B528C5100E08CB2 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16CC18D2B528C5100E08CB2 /* FoodViewController.swift */; };
 		F16CC1932B528C5200E08CB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1922B528C5200E08CB2 /* Assets.xcassets */; };
 		F16CC1962B528C5200E08CB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16CC1942B528C5200E08CB2 /* LaunchScreen.storyboard */; };
 		F16CC1A72B528D7900E08CB2 /* SFProDisplay-Ultralight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F16CC19E2B528D7900E08CB2 /* SFProDisplay-Ultralight.ttf */; };
@@ -28,7 +28,7 @@
 		F16CC1862B528C5100E08CB2 /* HammerSystems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HammerSystems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16CC1892B528C5100E08CB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F16CC18B2B528C5100E08CB2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F16CC18D2B528C5100E08CB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F16CC18D2B528C5100E08CB2 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		F16CC1922B528C5200E08CB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F16CC1952B528C5200E08CB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F16CC1972B528C5200E08CB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 				F16CC19D2B528D7900E08CB2 /* Fonts */,
 				F16CC1892B528C5100E08CB2 /* AppDelegate.swift */,
 				F16CC18B2B528C5100E08CB2 /* SceneDelegate.swift */,
-				F16CC18D2B528C5100E08CB2 /* ViewController.swift */,
+				F16CC18D2B528C5100E08CB2 /* FoodViewController.swift */,
 				F16CC1B02B528E8D00E08CB2 /* SectionType.swift */,
 				F16CC1922B528C5200E08CB2 /* Assets.xcassets */,
 				F16CC1942B528C5200E08CB2 /* LaunchScreen.storyboard */,
@@ -181,7 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F16CC18E2B528C5100E08CB2 /* ViewController.swift in Sources */,
+				F16CC18E2B528C5100E08CB2 /* FoodViewController.swift in Sources */,
 				F16CC18A2B528C5100E08CB2 /* AppDelegate.swift in Sources */,
 				F16CC18C2B528C5100E08CB2 /* SceneDelegate.swift in Sources */,
 				F16CC1B12B528E8D00E08CB2 /* SectionType.swift in Sources */,
