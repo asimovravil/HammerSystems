@@ -40,6 +40,7 @@ final class FoodViewController: UIViewController {
         setupViews()
         setupConstraints()
         fetchData()
+        loadDataFromLocalStorage()
     }
     
     // MARK: - Setup Views
@@ -65,20 +66,38 @@ final class FoodViewController: UIViewController {
     
     private func fetchData() {
         apiService.fetchSearchResults { [weak self] (result, error) in
-            self?.prepareCategoryIndices(results: result?.searchResults ?? [])
             if let error = error {
                 print("Ошибка при получении данных: \(error.localizedDescription)")
+                print("Проверяем наличие сохраненных данных...")
+                self?.loadDataFromLocalStorage()
                 return
             }
             if let results = result?.searchResults {
                 self?.allItems = results.flatMap { $0.results }
+                self?.saveDataToLocalStorage(results: results)
+                self?.prepareCategoryIndices(results: results)
             }
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
         }
     }
-    
+
+    private func saveDataToLocalStorage(results: [CategoryResult]) {
+        if let encoded = try? JSONEncoder().encode(results) {
+            UserDefaults.standard.set(encoded, forKey: "cachedResults")
+        }
+    }
+
+    private func loadDataFromLocalStorage() {
+        if let savedResults = UserDefaults.standard.object(forKey: "cachedResults") as? Data {
+            if let loadedResults = try? JSONDecoder().decode([CategoryResult].self, from: savedResults) {
+                self.allItems = loadedResults.flatMap { $0.results }
+                self.prepareCategoryIndices(results: loadedResults)
+            }
+        }
+    }
+
     private func prepareCategoryIndices(results: [CategoryResult]) {
         var currentIndex = 0
         for categoryResult in results {
