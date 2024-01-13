@@ -118,7 +118,7 @@ final class FoodViewController: UIViewController {
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: 16,
-            bottom: 15,
+            bottom: 0,
             trailing: 16
         )
         section.orthogonalScrollingBehavior = .continuous
@@ -162,7 +162,7 @@ final class FoodViewController: UIViewController {
         return NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: NSCollectionLayoutSize(
                 widthDimension: .fractionalWidth(1),
-                heightDimension: .absolute(43)
+                heightDimension: .absolute(24)
             ),
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .topLeading
@@ -185,6 +185,11 @@ extension FoodViewController: UICollectionViewDataSource, UICollectionViewDelega
                 for: indexPath
             ) as? BannerCell else {
                 fatalError("Could not cast to BannerCell")
+            }
+            if indexPath.item == 0 {
+                cell.bannerImageView.image = UIImage(named: "bannerImage1")
+            } else if indexPath.item == 1 {
+                cell.bannerImageView.image = UIImage(named: "bannerImage2")
             }
             return cell
         case .category:
@@ -213,7 +218,7 @@ extension FoodViewController: UICollectionViewDataSource, UICollectionViewDelega
         let section = sections[section]
         switch section {
         case .banner:
-            return 3
+            return 2
         case .category:
             return 5
         case .main:

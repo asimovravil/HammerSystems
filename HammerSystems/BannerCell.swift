@@ -13,9 +13,9 @@ final class BannerCell: UICollectionViewCell {
     
     // MARK: - UI
     
-    private lazy var bannerImageView: UIImageView = {
+    public lazy var bannerImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "bannerImage")
+        imageView.image = UIImage(named: "bannerImage1")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -35,6 +35,11 @@ final class BannerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+    }
+    
     // MARK: - Setup Views
     
     private func setupViews() {
@@ -45,10 +50,7 @@ final class BannerCell: UICollectionViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            bannerImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            bannerImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            bannerImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            bannerImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            bannerImageView.heightAnchor.constraint(equalToConstant: 112),
         ])
     }
 }
