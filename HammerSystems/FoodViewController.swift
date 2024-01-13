@@ -69,15 +69,87 @@ final class FoodViewController: UIViewController {
     // MARK: - Section Layout
     
     private func bannerSectionLayout() -> NSCollectionLayoutSection {
-        
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(1)
+            )
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .absolute(300),
+                heightDimension: .absolute(160)
+            ),
+            subitems: [item]
+        )
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 16,
+            bottom: 15,
+            trailing: 16
+        )
+        section.orthogonalScrollingBehavior = .continuous
+        section.boundarySupplementaryItems = [supplementaryHeaderItem()]
+        return section
     }
     
     private func categorySectionLayout() -> NSCollectionLayoutSection {
-        
+        let item = NSCollectionLayoutItem(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1),
+                heightDimension: .fractionalHeight(1)
+            )
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: NSCollectionLayoutSize(
+                widthDimension: .absolute(300),
+                heightDimension: .absolute(160)
+            ),
+            subitems: [item]
+        )
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 10
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 16,
+            bottom: 15,
+            trailing: 16
+        )
+        section.orthogonalScrollingBehavior = .continuous
+        section.boundarySupplementaryItems = [supplementaryHeaderItem()]
+        return section
     }
     
     private func mainSectionLayout() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.5),
+            heightDimension: .absolute(296)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(296)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item, item]
+        )
+        
+        group.interItemSpacing = .fixed(15)
+        
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = 15
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 16,
+            bottom: 15,
+            trailing: 16
+        )
+        section.boundarySupplementaryItems = [supplementaryHeaderItem()]
+        return section
     }
     
     // MARK: - Supplementary Header Item
