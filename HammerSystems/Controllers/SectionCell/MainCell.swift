@@ -25,19 +25,18 @@ final class MainCell: UITableViewCell {
     
     private lazy var mainImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "pizzaImage")
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    private lazy var mainTitle: UILabel = {
+    public lazy var mainTitle: UILabel = {
         let label = UILabel()
         label.text = "Ветчина и грибы"
         label.textAlignment = .center
         label.textColor = .black
-        label.numberOfLines = 0
+        label.numberOfLines = 1
         label.font = UIFont(name: "SFProDisplay-SemiBold", size: 17)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -96,6 +95,7 @@ final class MainCell: UITableViewCell {
             cardView.layer.maskedCorners = []
         }
 
+        mainImage.layer.cornerRadius = 10
         cardPriceView.layer.cornerRadius = 6
         cardView.layer.cornerRadius = 20
     }
@@ -124,6 +124,7 @@ final class MainCell: UITableViewCell {
             
             mainTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 32),
             mainTitle.leadingAnchor.constraint(equalTo: mainImage.trailingAnchor, constant: 32),
+            mainTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
             mainSubTitle.topAnchor.constraint(equalTo: mainTitle.bottomAnchor, constant: 8),
             mainSubTitle.leadingAnchor.constraint(equalTo: mainImage.trailingAnchor, constant: 32),
@@ -137,5 +138,17 @@ final class MainCell: UITableViewCell {
             priceLabel.centerXAnchor.constraint(equalTo: cardPriceView.centerXAnchor),
             priceLabel.centerYAnchor.constraint(equalTo: cardPriceView.centerYAnchor),
         ])
+    }
+}
+
+extension MainCell {
+    func loadImage(from url: URL) {
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self?.mainImage.image = image
+                }
+            }
+        }.resume()
     }
 }

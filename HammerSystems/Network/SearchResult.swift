@@ -8,26 +8,15 @@
 import Foundation
 
 struct SearchResult: Codable {
-    let recipes: [Recipe]
-    let products: [Product]
-    let menuItems: [MenuItem]
+    let searchResults: [CategoryResult]
 }
 
-struct Recipe: Codable {
-    let id: Int
+struct CategoryResult: Codable {
     let name: String
-    let image: String
-    let link: String
+    let results: [CategoryItem]
 }
 
-struct Product: Codable {
-    let id: Int
-    let name: String
-    let image: String
-    let link: String
-}
-
-struct MenuItem: Codable {
+struct CategoryItem: Codable {
     let id: Int
     let name: String
     let image: String

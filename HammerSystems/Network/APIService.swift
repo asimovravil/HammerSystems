@@ -11,8 +11,9 @@ class APIService {
     let apiKey = "f70c01b294cc4c4d96f61c9593bd3e81"
     let baseURL = "https://api.spoonacular.com/food/search/"
 
+    // Функция для получения данных из API
     func fetchSearchResults(completion: @escaping (SearchResult?, Error?) -> Void) {
-        let urlString = "\(baseURL)?apiKey=\(apiKey)"
+        let urlString = "\(baseURL)?apiKey=\(apiKey)&includeNutrition=true"
         guard let url = URL(string: urlString) else {
             completion(nil, NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "Неверный URL"]))
             return

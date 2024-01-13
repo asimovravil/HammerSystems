@@ -12,6 +12,8 @@ final class FoodViewController: UIViewController {
     // MARK: - PROPERTY
     
     let tableViewSection: [TableViewSection] = [.banner, .category, .main]
+    var allItems: [CategoryItem] = []
+    let apiService = APIService()
     
     // MARK: - UI
     
@@ -36,6 +38,7 @@ final class FoodViewController: UIViewController {
         
         setupViews()
         setupConstraints()
+        fetchData()
     }
     
     // MARK: - Setup Views
@@ -55,6 +58,23 @@ final class FoodViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+    
+    // MARK: - Fetch Data
+    
+    private func fetchData() {
+        apiService.fetchSearchResults { [weak self] (result, error) in
+            if let error = error {
+                print("Ошибка при получении данных: \(error.localizedDescription)")
+                return
+            }
+            if let results = result?.searchResults {
+                self?.allItems = results.flatMap { $0.results }
+            }
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
 }
 
@@ -76,8 +96,13 @@ extension FoodViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.reuseID, for: indexPath) as? MainCell else {
                 fatalError("Could not cast to MainCell")
             }
+            let categoryItem = allItems[indexPath.row]
+            cell.mainTitle.text = categoryItem.name
             cell.isFirstCell = indexPath.row == 0
             cell.backgroundColor = UIColor(named: "background")
+            if let iconURL = URL(string: categoryItem.image) {
+                cell.loadImage(from: iconURL)
+            }
             return cell
         default:
             fatalError("Unexpected section")
@@ -92,7 +117,7 @@ extension FoodViewController: UITableViewDataSource, UITableViewDelegate {
         case .category:
             return 0
         case .main:
-            return 20
+            return allItems.count
         }
     }
     

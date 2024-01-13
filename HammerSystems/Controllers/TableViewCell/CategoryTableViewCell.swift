@@ -14,6 +14,7 @@ final class CategoryTableViewCell: UITableViewCell {
     static let reuseID = String(describing: CategoryTableViewCell.self)
     var selectedCategoryIndex: IndexPath?
     let sections: [CategorySection] = [.categoryCollection]
+    let categories = ["Recipes", "Products", "Menu Items", "Custom"]
     
     // MARK: - UI
     
@@ -112,7 +113,10 @@ extension CategoryTableViewCell: UICollectionViewDataSource, UICollectionViewDel
                 fatalError("Could not cast to CategoryCell")
             }
             
-            updateCellStyle(cell, for: indexPath) 
+            updateCellStyle(cell, for: indexPath)
+            
+            cell.categoryLabel.text = categories[indexPath.item]
+            updateCellStyle(cell, for: indexPath)
             return cell
         }
     }
@@ -121,7 +125,7 @@ extension CategoryTableViewCell: UICollectionViewDataSource, UICollectionViewDel
         let section = sections[section]
         switch section {
         case .categoryCollection:
-            return 5
+            return categories.count
         }
     }
     
