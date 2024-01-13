@@ -7,11 +7,15 @@
 
 import UIKit
 
-class FoodViewController: UIViewController {
+final class FoodViewController: UIViewController {
+    
+    // MARK: - PROPERTY
+    
+    let sections: [SectionType] = [.banner, .category, .main]
     
     // MARK: - UI
     
-    lazy var collectionView: UICollectionView = {
+    private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -44,6 +48,36 @@ class FoodViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+    
+    // MARK: - Create Layout
+    
+    private func createLayout() -> UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout { [weak self] sectionIndex, _ in
+            let section = self?.sections[sectionIndex] ?? .banner
+            switch section {
+            case .banner:
+                return self?.bannerSectionLayout()
+            case .category:
+                return self?.categorySectionLayout()
+            case .main:
+                return self?.mainSectionLayout()
+            }
+        }
+    }
+    
+    // MARK: - Section Layout
+    
+    private func bannerSectionLayout() -> NSCollectionLayoutSection {
+        
+    }
+    
+    private func categorySectionLayout() -> NSCollectionLayoutSection {
+        
+    }
+    
+    private func mainSectionLayout() -> NSCollectionLayoutSection {
+        
     }
 }
 
